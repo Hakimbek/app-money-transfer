@@ -9,7 +9,6 @@ import com.example.appmoneytransfer.security.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Service
@@ -41,6 +40,11 @@ public class CardService {
         cardRepository.save(card);
 
         return new Result(true, "Card successfully added");
+    }
+
+    public List<Card> getCardByUsername() {
+        String username = jwtFilter.username;
+        return cardRepository.findAllByUsername(username);
     }
 
     public List<Card> get() {

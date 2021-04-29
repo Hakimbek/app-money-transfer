@@ -4,11 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -20,18 +16,19 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Username must not be empty")
+    @Column(nullable = false)
     private String username;
 
-    @NotNull(message = "Number must not be empty")
+    @Column(nullable = false, unique = true)
     private Long number;
 
     private Double balance = 500_000.0;
 
     private String currency = "UZS";
 
-    @NotNull(message = "ExpireDate must not be empty")
+    @Column(nullable = false)
     private Date expireDate;
 
+    @Column(nullable = false)
     private Boolean active = true;
 }

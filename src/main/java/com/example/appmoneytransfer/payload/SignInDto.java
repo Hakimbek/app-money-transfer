@@ -6,9 +6,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class SignInDto {
-    @NotNull(message = "Username must not be empty")
+    @NotNull(message = "username must not be empty")
     private String username;
 
-    @NotNull(message = "Password must not be empty")
+    @NotNull(message = "password must not be empty")
     private String password;
 }

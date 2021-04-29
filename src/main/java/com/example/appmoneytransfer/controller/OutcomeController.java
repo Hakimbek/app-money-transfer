@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/outcome")
+@RequestMapping("/api/outcome")
 public class OutcomeController {
     @Autowired
     OutcomeService outcomeService;

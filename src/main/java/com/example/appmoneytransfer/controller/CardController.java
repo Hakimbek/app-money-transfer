@@ -28,14 +28,15 @@ public class CardController {
         return ResponseEntity.status(result.getSuccess() ? 201 : 409).body(result.getMessage());
     }
 
-    /**
-     * GET ALL CARD
-     *
-     * @return LIST OF CARDS
-     */
+    @GetMapping("/username")
+    public ResponseEntity<?> getCardByUsername() {
+        List<Card> cardsByUsername = cardService.getCardByUsername();
+        return ResponseEntity.status(cardsByUsername != null ? 200 : 409).body(cardsByUsername);
+    }
+
     @GetMapping
     public ResponseEntity<?> get() {
         List<Card> cards = cardService.get();
-        return ResponseEntity.status(cards != null ? 200 : 404).body(cards);
+        return ResponseEntity.status(cards != null ? 200 : 409).body(cards);
     }
 }

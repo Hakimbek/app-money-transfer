@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Data
@@ -23,9 +22,9 @@ public class Income {
     @ManyToOne(optional = false)
     private Card toCardId;
 
-    @NotNull(message = "Amount must not be empty")
+    @Column(nullable = false)
     private Double amount;
 
-    @NotNull(message = "Date must not be null")
+    @Column(nullable = false)
     private LocalDateTime dateTime = LocalDateTime.now();
 }
