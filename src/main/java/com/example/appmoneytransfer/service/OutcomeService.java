@@ -63,12 +63,12 @@ public class OutcomeService {
         }
 
         // CHECK OUT, CARD HAS ENOUGH MONEY FOR TRANSFER
-        if(fromCard.getBalance() < (outcomeDto.getAmount() + outcomeDto.getAmount() * 0.1)) {
+        if(fromCard.getBalance() < (outcomeDto.getAmount() + outcomeDto.getAmount() * 0.01)) {
             return new Result(false, "Not enough money");
         }
 
         // SAVE EDITED FROM CARD
-        fromCard.setBalance(fromCard.getBalance() - (outcomeDto.getAmount() + outcomeDto.getAmount() * 0.1));
+        fromCard.setBalance(fromCard.getBalance() - (outcomeDto.getAmount() + outcomeDto.getAmount() * 0.01));
         Card savedFromCard = cardRepository.save(fromCard);
 
         // SAVE EDITED TO CARD
